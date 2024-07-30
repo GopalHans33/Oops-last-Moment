@@ -872,7 +872,7 @@ public:
  
  
 // friend function definition
-void func(base& obj)
+void func(Base& obj)
 {
     cout << "Private Variable: " << obj.a << endl;
     cout << "Protected Variable: " << obj.b;
@@ -882,7 +882,7 @@ void func(base& obj)
 int main()
 {
     Base obj;
-    funcobj);
+    func(obj);
  
     return 0;
     

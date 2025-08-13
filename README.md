@@ -151,12 +151,12 @@ class student
     
     // this will call copy constructor due to pass by value
     void solve1 (student p){              
-      cout<<"Hello"<<endl;
+      cout<<"Hello from Solve1"<<endl;
     }
     
     // this will not call copy constructor due to pass by reference
     void solve2 (student& p){              
-      cout<<"Hello"<<endl;
+      cout<<"\nHello from Solve 2"<<endl;
     }
 
     void printinfo()
@@ -183,6 +183,7 @@ int main()
     
     // Copy Constructor Call
     student s3(s2);
+    s3.printinfo();
     
     // call the copy constructor
     s3.solve1(s2);
@@ -196,21 +197,25 @@ int main()
 ```
 
 **Output**
->Default Constructor\
-Name = \
-Age = 2 \
-Gender = 0 
+Default Constructor
+Name = 
+Age = -1895915456
+Gender = 186
 
->parameterised constructor \
-Name = sumeet \
-Age = 20 \
-Gender = 1 
+parameterised constructor
+Name = sumeet
+Age = 20
+Gender = 1
 
->copy constructer \
-Name = sumeet \
-Age = 20 \
-Gender = 1 
+copy constructer
+Name = sumeet
+Age = 20
+Gender = 1
 
+copy constructer
+Hello from Solve1
+
+Hello from Solve 2
 ---
 
 

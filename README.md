@@ -197,25 +197,25 @@ int main()
 ```
 
 **Output**
-Default Constructor
-Name = 
-Age = -1895915456
-Gender = 186
-
-parameterised constructor
-Name = sumeet
-Age = 20
-Gender = 1
-
-copy constructer
-Name = sumeet
-Age = 20
-Gender = 1
-
-copy constructer
-Hello from Solve1
-
-Hello from Solve 2
+>Default Constructor \
+Name = \
+Age = -1895915456 \
+Gender = 186 \
+\
+parameterised constructor \
+Name = sumeet \
+Age = 20 \
+Gender = 1 \
+\
+copy constructer \
+Name = sumeet \
+Age = 20 \
+Gender = 1 \
+\
+copy constructer \
+Hello from Solve1 \
+\
+Hello from Solve 2 \
 ---
 
 

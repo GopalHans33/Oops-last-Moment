@@ -149,12 +149,12 @@ class student
       cout<<"copy constructer"<<endl;
     }
     
-    // this will call copy constructor
+    // this will call copy constructor due to pass by value
     void solve1 (student p){              
       cout<<"Hello"<<endl;
     }
     
-    // this will not call copy constructor
+    // this will not call copy constructor due to pass by reference
     void solve2 (student& p){              
       cout<<"Hello"<<endl;
     }
@@ -184,10 +184,10 @@ int main()
     // Copy Constructor Call
     student s3(s2);
     
-    // call the copy constructor due to pass by value
+    // call the copy constructor
     s3.solve1(s2);
     
-    // will not call the copy constructor due to pass by reference
+    // will not call the copy constructor
     s3.solve2(s2);
 
     return 0;

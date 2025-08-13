@@ -148,6 +148,16 @@ class student
       gender = p.gender;
       cout<<"copy constructer"<<endl;
     }
+    
+    // this will call copy constructor
+    void solve1 (student p){              
+      cout<<"Hello"<<endl;
+    }
+    
+    // this will not call copy constructor
+    void solve2 (student& p){              
+      cout<<"Hello"<<endl;
+    }
 
     void printinfo()
     {
@@ -166,12 +176,19 @@ int main()
     // Default Constructer Call
     student s1;
     s1.printinfo();
+    
     // Parameterised Constructer Call
     student s2("sumeet", 20, 1);
     s2.printinfo();
+    
     // Copy Constructor Call
     student s3(s2);
-    s3.printinfo();
+    
+    // call the copy constructor due to pass by value
+    s3.solve1(s2);
+    
+    // will not call the copy constructor due to pass by reference
+    s3.solve2(s2);
 
     return 0;
 }

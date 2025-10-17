@@ -487,6 +487,101 @@ int main()
 > Sum = 14
 
 
+# 💎 Diamond Problem in C++
+
+---
+
+## 📖 What is the Diamond Problem?
+
+The **Diamond Problem** is a classic issue in **Object-Oriented Programming (OOP)** that arises with **multiple inheritance**.  
+It happens when a **derived class** inherits from **two base classes**, both of which inherit from the **same parent class**.  
+
+This leads to **ambiguity** because the derived class indirectly inherits **two copies** of the same base class — and the compiler cannot determine which one to use.
+
+---
+
+## 🧩 Structure (Why it’s called a "Diamond")
+
+![image](https://miro.medium.com/v2/resize:fit:640/format:webp/1*vFlGOtFoP3aU-fWNUqg2qQ.jpeg)
+
+- `A` → Base Class  
+- `B` and `C` → Inherit from `A`  
+- `D` → Inherits from both `B` and `C`  
+
+This inheritance structure visually forms a **diamond shape**, hence the name **Diamond Problem**.
+
+---
+
+## ⚠️ The Problem (Without Virtual Inheritance)
+
+```cpp
+#include <iostream>
+using namespace std;
+
+class A {
+public:
+    void show() {
+        cout << "Class A" << endl;
+    }
+};
+
+class B : public A {};
+class C : public A {};
+class D : public B, public C {};
+
+int main() {
+    D obj;
+    obj.show();  // ❌ Error: Ambiguous call to 'show'
+    return 0;
+}
+```
+
+---
+
+## ⚙️ Explanation
+
+- Class `D` inherits from both `B` and `C`.  
+- Both `B` and `C` already inherit from `A`.  
+- So `D` now has **two copies** of `A` — one via `B` and one via `C`.  
+- When calling `obj.show()`, the compiler gets confused because **there are two versions** of `show()` from `A`.
+
+---
+
+## ✅ The Solution — Virtual Inheritance
+
+To solve this ambiguity, **C++** provides **virtual inheritance**.
+
+By declaring the base class as **virtual**, only **one shared copy** of the base class `A` is inherited, even if it appears multiple times in the hierarchy.
+
+```cpp
+#include <iostream>
+using namespace std;
+
+class A {
+public:
+    void show() {
+        cout << "Class A" << endl;
+    }
+};
+
+// Notice the 'virtual' keyword
+class B : virtual public A {};
+class C : virtual public A {};
+class D : public B, public C {};
+
+int main() {
+    D obj;
+    obj.show();  // ✅ Works fine, only one copy of A
+    return 0;
+}
+```
+
+## How it Works:
+
+The virtual keyword ensures that there is only one instance of class A shared among B, C, and D.
+
+This removes ambiguity and makes the inheritance hierarchy consistent and predictable.
+
 ---
 
 
